@@ -1,7 +1,7 @@
 ---
 name: austereos                                            # Name
 description: This is my personal OS image.                 # Description
-base-image: quay.io/fedora-ostree-desktops/silverblue      # Base
+base-image: ghcr.io/ublue-os/silverblue-main               # Base
 image-version: 44                                          # Version
 modules:                                                   # Modules
   - type: files                                            # Files
@@ -10,6 +10,7 @@ modules:                                                   # Modules
         destination: /
   - type: dnf                                              # DNF Packages (Baked In)
     repos:
+      copr:
     install:
       packages:
       - distrobox
