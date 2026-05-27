@@ -2,7 +2,7 @@
 name: austereos                                            # Name
 description: This is my personal OS image.                 # Description
 base-image: quay.io/fedora-ostree-desktops/silverblue      # Base
-image-version: latest                                      # Version
+image-version: 44                                          # Version
 modules:                                                   # Modules
   - type: files                                            # Files
     files:
