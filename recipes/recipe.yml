@@ -30,7 +30,7 @@ modules:                                                   # Modules
         - io.github.kolunmi.Bazaar
       - scope: user
   - type: script
-      scripts:
+    scripts:
         - gnome-setup.sh
   - type: signing
  
