@@ -1,14 +1,14 @@
 ---
 name: austereos                                            # Name
 description: This is my personal OS image.                 # Description
-base-image: ghcr.io/ublue-os/silverblue-main               # Base
+base-image: quay.io/fedora-ostree-desktops/silverblue      # Base
 image-version: latest                                      # Version
 modules:                                                   # Modules
   - type: files                                            # Files
     files:
       - source: system
         destination: /
-  - type: dnf                                              # DNF Packages
+  - type: dnf                                              # DNF Packages (Baked In)
     repos:
       copr:
         - atim/starship
@@ -20,7 +20,7 @@ modules:                                                   # Modules
       packages:
         - firefox
         - firefox-langpacks
-  - type: default-flatpaks                                 # Flatpaks
+  - type: default-flatpaks                                 # Flatpaks (Removeable)
     configurations:
       - notify: true
         scope: system
