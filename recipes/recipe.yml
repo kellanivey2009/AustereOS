@@ -14,12 +14,7 @@ modules:                                                   # Modules
       packages:
       - distrobox
       - podman
-      - docker-compose-plugin
-      - podman-compose
-    remove:
-      packages:
-        - firefox
-        - firefox-langpacks
+      - flatpak
   - type: default-flatpaks                                 # Flatpaks (Removeable)
     configurations:
       - notify: true
