@@ -10,7 +10,6 @@ modules:                                                   # Modules
       - source: system
         destination: /
   - type: dnf                                              # DNF Packages (Baked In)
-    repos:
     install:
       packages:
       - distrobox
