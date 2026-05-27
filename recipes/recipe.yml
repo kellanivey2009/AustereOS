@@ -19,7 +19,7 @@ modules:                                                   # Modules
       packages:
         - firefox
         - firefox-langpacks
-  - type: default-flatpaks                                  # Flatpaks
+  - type: default-flatpaks                                 # Flatpaks
     configurations:
       - notify: true
         scope: system
