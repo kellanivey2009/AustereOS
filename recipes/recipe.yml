@@ -1,4 +1,5 @@
 ---
+# yaml-language-server: $schema=https://schema.blue-build.org/recipe-v1.json
 name: austereos                                            # Name
 description: This is my personal OS image.                 # Description
 base-image: ghcr.io/ublue-os/silverblue-main               # Base
