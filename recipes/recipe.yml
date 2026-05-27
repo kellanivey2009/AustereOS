@@ -20,6 +20,7 @@ modules:                                                   # Modules
       with-optional: false
       packages:
       - gnome-desktop
+      - kde-desktop
   - type: default-flatpaks                                 # Flatpaks (Removeable)
     configurations:
       - notify: true
