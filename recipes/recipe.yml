@@ -15,6 +15,10 @@ modules:                                                   # Modules
       - distrobox
       - podman
       - flatpak
+    group-install:
+      with-optional: false
+      packages:
+      - gnome-desktop
   - type: default-flatpaks                                 # Flatpaks (Removeable)
     configurations:
       - notify: true
