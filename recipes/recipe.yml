@@ -16,6 +16,10 @@ modules:                                                   # Modules
       - podman
       - docker-compose
       - podman-compose
+    group-install:
+      with-optional: false
+      packages:
+      - "GNOME Desktop Environment"
     remove:
       packages:
         - firefox
