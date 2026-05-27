@@ -11,11 +11,12 @@ modules:                                                   # Modules
   - type: dnf                                              # DNF Packages (Baked In)
     repos:
       copr:
-        - atim/starship
     install:
       packages:
-        - micro
-        - starship
+      - distrobox
+      - podman
+      - docker-compose
+      - podman-compose
     remove:
       packages:
         - firefox
@@ -25,8 +26,9 @@ modules:                                                   # Modules
       - notify: true
         scope: system
         install:
-          - org.mozilla.firefox
-          - org.gnome.Loupe
+        - net.mullvad.MullvadBrowser
+        - org.chromium.Chromium
+        - io.github.kolunmi.Bazaar
       - scope: user
   - type: signing
  
