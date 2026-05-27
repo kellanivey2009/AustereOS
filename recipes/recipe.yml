@@ -6,6 +6,7 @@ image-version: latest                                      # Version
 modules:                                                   # Modules
   - type: files                                            # Files
     files:
+      - source: system
         destination: /
   - type: dnf                                              # DNF Packages
     repos:
