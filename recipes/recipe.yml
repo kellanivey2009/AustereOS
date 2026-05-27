@@ -10,7 +10,6 @@ modules:                                                   # Modules
         destination: /
   - type: dnf                                              # DNF Packages (Baked In)
     repos:
-      copr:
     install:
       packages:
       - distrobox
