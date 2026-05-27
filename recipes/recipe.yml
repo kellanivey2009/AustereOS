@@ -14,12 +14,8 @@ modules:                                                   # Modules
       packages:
       - distrobox
       - podman
-      - docker-compose
+      - docker-compose-plugin
       - podman-compose
-    group-install:
-      with-optional: false
-      packages:
-      - "GNOME Desktop Environment"
     remove:
       packages:
         - firefox
