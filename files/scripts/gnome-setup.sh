@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
 
 systemctl enable gdm.service
-systemctl set-default graphical.target
+ln -sf /usr/lib/systemd/system/graphical.target /etc/systemd/system/default.target
