@@ -5,28 +5,29 @@ description: A bare-chilling-bones OS                      # Description
 base-image: ghcr.io/ublue-os/base-nvidia                   # Base
 image-version: latest                                      # Version
 modules:                                                   # Modules
-  - type: files                                            # Files
-    files:
-      - source: system
-        destination: /
-  - type: dnf                                              # DNF Packages (Baked In)
+- type: files                                            # Files
+  files:
+  - source: system
+    destination: /
+- type: dnf                                              # DNF Packages (Baked In)
+  install:
+  packages:
+  - distrobox
+  group-install:
+  with-optional: true
+   packages:
+   - gnome-desktop
+- type: default-flatpaks                                 # Flatpaks (Removeable)
+  configurations:
+  - notify: true
+    scope: system
     install:
-      packages:
-    group-install:
-      with-optional: true
-      packages:
-      - gnome-desktop
-  - type: default-flatpaks                                 # Flatpaks (Removeable)
-    configurations:
-      - notify: true
-        scope: system
-        install:
-        - io.github.kolunmi.Bazaar
-      - scope: user
-  - type: script
-    scripts:
+    - io.github.kolunmi.Bazaar
+  - scope: user
+- type: script
+  scripts:
         - gnome-setup.sh
-  - type: signing
+- type: signing
  
   
   # yaml-language-server: $schema=https://schema.blue-build.org/recipe-v1.json
