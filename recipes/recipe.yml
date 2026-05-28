@@ -1,11 +1,15 @@
 ---
 # yaml-language-server: $schema=https://schema.blue-build.org/recipe-v1.json
-name: austereos                   # Name
-description: A bare-chilling-bones OS  # Description
-base-image: ghcr.io/ublue-os/base-nvidia  # Base
-image-version: latest             # Version
-modules:                          # Modules
-- type: files                  # Files
+
+# BASE
+name: austereos
+description: A bare-chilling-bones OS
+base-image: ghcr.io/ublue-os/base-nvidia
+image-version: latest
+
+# LOCATION
+modules:
+- type: files
   files:
   - source: system
     destination: /
