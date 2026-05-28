@@ -1,37 +1,36 @@
 ---
 # yaml-language-server: $schema=https://schema.blue-build.org/recipe-v1.json
-name: austereos                                            # Name
-description: A bare-chilling-bones OS                      # Description
-base-image: ghcr.io/ublue-os/base-nvidia                   # Base
-image-version: latest                                      # Version
-modules:                                                   # Modules
-- type: files                                            # Files
-  files:
-  - source: system
-    destination: /
-- type: dnf                                              # DNF Packages (Baked In)
-  install:
-  packages:
-  - distrobox
-  group-install:
-  with-optional: true
-   packages:
-   - gnome-desktop
-- type: default-flatpaks                                 # Flatpaks (Removeable)
-  configurations:
-  - notify: true
-    scope: system
+name: austereos                   # Name
+description: A bare-chilling-bones OS  # Description
+base-image: ghcr.io/ublue-os/base-nvidia  # Base
+image-version: latest             # Version
+modules:                          # Modules
+
+  - type: files                  # Files
+    files:
+      - source: system
+        destination: /
+
+  - type: dnf                     # DNF Packages (Baked In)
     install:
-    - io.github.kolunmi.Bazaar
-  - scope: user
-- type: script
-  scripts:
-        - gnome-setup.sh
-- type: signing
- 
-  
-  # yaml-language-server: $schema=https://schema.blue-build.org/recipe-v1.json
-  # image will be published to ghcr.io/<user>/<name>
-  # copies files/system/* (* means everything inside it) into your image's root folder / (destination)
-  # module configuration, executed in order
-  # you can include multiple instances of the same module
+      packages:
+        - distrobox
+        - gmd
+      group-install:
+        with-optional: true
+        packages:
+          - gnome-desktop
+
+  - type: default-flatpaks        # Flatpaks (Removable)
+    configurations:
+      - notify: true
+        scope: system
+        install:
+          - io.github.kolunmi.Bazaar
+      - scope: user
+
+  - type: script
+    scripts:
+      - gnome-setup.sh
+
+  - type: signing
