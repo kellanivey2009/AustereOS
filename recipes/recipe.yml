@@ -15,7 +15,7 @@ modules:                          # Modules
         - distrobox
         - gmd
   - type: dnf
-      group-install:
+    group-install:
         with-optional: true
         packages:
           - gnome-desktop
