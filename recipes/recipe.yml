@@ -2,7 +2,7 @@
 # yaml-language-server: $schema=https://schema.blue-build.org/recipe-v1.json
 name: austereos                                            # Name
 description: A bare-chilling-bones OS                      # Description
-base-image: ghcr.io/ublue-os/base-main                     # Base
+base-image: ghcr.io/ublue-os/base-nvidia                   # Base
 image-version: latest                                      # Version
 modules:                                                   # Modules
   - type: files                                            # Files
@@ -12,22 +12,15 @@ modules:                                                   # Modules
   - type: dnf                                              # DNF Packages (Baked In)
     install:
       packages:
-      - distrobox
-      - podman
-      - flatpak
-      - gdm
     group-install:
-      with-optional: false
+      with-optional: true
       packages:
       - gnome-desktop
-      - kde-desktop
   - type: default-flatpaks                                 # Flatpaks (Removeable)
     configurations:
       - notify: true
         scope: system
         install:
-        - net.mullvad.MullvadBrowser
-        - org.chromium.Chromium
         - io.github.kolunmi.Bazaar
       - scope: user
   - type: script
