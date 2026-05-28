@@ -12,13 +12,9 @@ modules:                          # Modules
   - type: dnf                     # DNF Packages (Baked In)
     install:
       packages:
+        - gnome-desktop
         - distrobox
         - gmd
-  - type: dnf
-    group-install:
-        with-optional: true
-        packages:
-          - gnome-desktop
   - type: default-flatpaks        # Flatpaks (Removable)
     configurations:
       - notify: true
