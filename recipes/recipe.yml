@@ -14,6 +14,6 @@ modules:
   - source: system
     destination: /
 - type: script
-    scripts:
+  scripts:
     - everything.sh
-  - type: signing
+- type: signing
