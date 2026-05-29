@@ -13,8 +13,7 @@ modules:
   files:
   - source: system
     destination: /
-modules:
-  - type: script
+- type: script
     scripts:
-      - everything.sh
+    - everything.sh
   - type: signing
