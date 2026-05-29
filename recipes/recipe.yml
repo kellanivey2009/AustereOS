@@ -24,7 +24,7 @@ modules:
     - kernel-core
     - kernel-modules
     - kernel-modules-core
-     - kernel-modules-extra
+    - kernel-modules-extra
   install:
   - cachyos-settings
 - type: signing
