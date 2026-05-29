@@ -1,8 +1,19 @@
 #!/bin/bash
 set -euo pipefail
 
-echo "Installed kernel packages:"
-rpm -qa | grep '^kernel' | awk -F'-[0-9]' '{print $1}' | sort -u
+# Helper: only echo package name if it's installed
+pkg_if_installed() {
+  rpm -q "$1" &>/dev/null && echo "$1" || true
+}
+
+EXTRA_REMOVES=$(
+  pkg_if_installed kmod-nvidia
+  pkg_if_installed akmod-nvidia
+  pkg_if_installed kernel-devel-matched
+  pkg_if_installed zram-generator-defaults
+)
+
+echo "Extra packages to remove: $EXTRA_REMOVES"
 
 rpm-ostree override remove \
   kernel \
@@ -10,8 +21,7 @@ rpm-ostree override remove \
   kernel-modules \
   kernel-modules-core \
   kernel-modules-extra \
-  kmod-nvidia \
-  zram-generator-defaults \
+  $EXTRA_REMOVES \
   --install kernel-cachyos \
   --install cachyos-settings \
   --install cachyos-ksm-settings \
