@@ -4,7 +4,7 @@
 # BASE
 name: austereos
 description: A bare-chilling-bones OS
-base-image: ghcr.io/blue-build/base-images/fedora-base
+base_image: ghcr.io/blue-build/base-images/fedora-base
 image-version: latest
 
 # LOCATION
@@ -13,9 +13,15 @@ modules:
   files:
   - source: system
     destination: /
+
 - type: dnf
-  install:
-    group-install:
-      packages:
-      - gnome-desktop
+  group-install:
+    packages:
+    - gnome-desktop
+
+- type: script
+  snippets:
+    # Forces Fedora to boot into the graphical desktop interface automatically
+    - systemctl enable gdm.service
+
 - type: signing
