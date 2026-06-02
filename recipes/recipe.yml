@@ -18,10 +18,11 @@ modules:
   group-install:
     packages:
     - gnome-desktop
+    - plasma-desktop
 
 - type: script
   snippets:
     # Forces Fedora to boot into the graphical desktop interface automatically
-    - systemctl enable gdm.service
+    - systemctl enable gdm.service && systemctl set-default graphical.target
 
 - type: signing
