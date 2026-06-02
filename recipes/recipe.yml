@@ -15,6 +15,6 @@ modules:
     destination: /
 - type: dnf
   install:
-    groups:
+    group-install:
     - gnome-desktop
 - type: signing
