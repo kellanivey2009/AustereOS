@@ -22,7 +22,7 @@ modules:
 
 - type: script
   snippets:
-    # Forces Fedora to boot into the graphical desktop interface automatically
+    # Safe commands that won't crash the container builder
     - systemctl enable gdm.service
     - systemctl set-default graphical.target
 
