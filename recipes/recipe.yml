@@ -10,10 +10,11 @@ image-version: latest
 # LOCATION
 modules:
 
-- type: apt
+- type: dng
   group-install:
+    with-optional: false
     packages:
-    - vanilla-gnome-desktop
+    - gnome-desktop
     
 - type: files
   files:
