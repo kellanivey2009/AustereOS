@@ -22,8 +22,11 @@ modules:
 
 - type: script
   snippets:
-    # Safe commands that won't crash the container builder
+    # 1. Stop SDDM from competing or starting entirely
+    - systemctl mask sddm.service
+    # 2. Force GDM to be the master login manager & Forces Fedora to boot into the graphical desktop interface automatically
     - systemctl enable gdm.service
+    # 3. Ensure the system defaults to the graphical login interface
     - systemctl set-default graphical.target
 
 - type: signing
