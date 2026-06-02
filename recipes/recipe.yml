@@ -9,21 +9,19 @@ image-version: latest
 
 # LOCATION
 modules:
+
+- type: apt
+  group-install:
+    packages:
+    - vanilla-gnome-desktop
+    
 - type: files
   files:
   - source: system
     destination: /
 
-- type: dnf
-  group-install:
-    packages:
-    - gnome-desktop
-    - plasma-desktop
-
 - type: script
   snippets:
-    # 1. Stop SDDM from competing or starting entirely
-    - systemctl mask sddm.service
     # 2. Force GDM to be the master login manager & Forces Fedora to boot into the graphical desktop interface automatically
     - systemctl enable gdm.service
     # 3. Ensure the system defaults to the graphical login interface
