@@ -10,7 +10,7 @@ image-version: latest
 # LOCATION
 modules:
 
-- type: dng
+- type: dnf
   group-install:
     with-optional: false
     packages:
