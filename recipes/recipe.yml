@@ -14,7 +14,10 @@ modules:
   group-install:
     with-optional: false
     packages:
-    - gnome-desktop
+    - gnome-shell
+    - gnome-session
+    - gdm
+    - plasma-workspace
     
 - type: files
   files:
@@ -23,9 +26,8 @@ modules:
 
 - type: script
   snippets:
-    # 2. Force GDM to be the master login manager & Forces Fedora to boot into the graphical desktop interface automatically
+    - systemctl mask sddm
     - systemctl enable gdm.service
-    # 3. Ensure the system defaults to the graphical login interface
     - systemctl set-default graphical.target
 
 - type: signing
