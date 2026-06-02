@@ -4,7 +4,7 @@
 # BASE
 name: austereos
 description: A bare-chilling-bones OS
-base_image: ghcr.io/blue-build/base-images/fedora-base
+base-image: ghcr.io/blue-build/base-images/fedora-base
 image-version: latest
 
 # LOCATION
