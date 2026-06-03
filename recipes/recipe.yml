@@ -1,33 +1,38 @@
 ---
 # yaml-language-server: $schema=https://schema.blue-build.org/recipe-v1.json
-
 # BASE
 name: austereos
 description: A bare-chilling-bones OS
 base-image: ghcr.io/blue-build/base-images/fedora-base
-image-version: latest
+image-version: "latest"
 
-# LOCATION
 modules:
+  # Install GNOME and KDE desktop groups
+  - type: dnf
+    group-install:
+      with-optional: false
+      packages:
+        - gnome-desktop
+        - kde-desktop
 
-- type: dnf
-  group-install:
-    with-optional: false
-    packages:
-    - gnome-shell
-    - gnome-session
-    - gdm
-    - plasma-workspace
-    
-- type: files
-  files:
-  - source: system
-    destination: /
+  # Individual packages not covered by the groups above
+  - type: dnf
+    install:
+      packages:
+        - gdm
+        - sddm
 
-- type: script
-  snippets:
-    - systemctl mask sddm
-    - systemctl enable gdm.service
-    - systemctl set-default graphical.target
+  - type: files
+    files:
+      - source: system
+        destination: /
 
-- type: signing
+  # Use the systemd module — correct way to manage units in BlueBuild
+  - type: systemd
+    system:
+      enabled:
+        - gdm.service
+      masked:
+        - sddm.service
+
+  - type: signing
